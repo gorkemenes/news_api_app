@@ -10,14 +10,14 @@ class HomeScreen extends StatelessWidget {
     ApiServices apiServices = ApiServices();
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red,
         title: const Text(
-          "NEWS",
-          style: TextStyle(
-              color: Colors.black87, fontWeight: FontWeight.bold, fontSize: 25),
+          "News App",
+          style: TextStyle(color: Colors.black, fontSize: 30),
         ),
         centerTitle: true,
+        backgroundColor: const Color.fromARGB(255, 30, 63, 79),
       ),
+      backgroundColor: Theme.of(context).colorScheme.primary,
       body: FutureBuilder(
         future: apiServices.getNews(),
         builder: (context, snapshot) {
@@ -29,6 +29,7 @@ class HomeScreen extends StatelessWidget {
                     itemCount: snapshot.data!.length,
                     itemBuilder: (context, index) {
                       return Card(
+                        color: Theme.of(context).colorScheme.onPrimary,
                         child: Column(
                           children: [
                             Image.network(
